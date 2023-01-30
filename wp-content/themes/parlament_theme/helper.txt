@@ -1,0 +1,151 @@
+add_action( 'after_setup_theme', 'theme_support' );
+function theme_support() {
+  register_nav_menu( 'menu_main_burger', 'Меню в бургере' );
+  register_nav_menu( 'menu_main_footer', 'Меню в подвале' );
+  add_theme_support('post-thumbnails');
+  add_image_size('product', 500, 313, true);
+}
+// Подключение плагина carbon-fields
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
+add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
+function crb_attach_theme_options() {
+    Container::make( 'theme_options', 'Настройки сайта' )
+        ->add_tab('Общие настройки', [
+            Field::make( 'image', 'site_logo', 'Логотип' ),
+        ] )
+        ->add_tab('Контакты', [
+            Field::make( 'text', 'site_company_name', 'Название организации' ),
+            Field::make( 'text', 'site_company_inn', 'ИНН' ),
+            Field::make( 'text', 'site_company_sity', 'Город' ),
+            Field::make( 'text', 'site_company_adress', 'Адрес' ),
+        ] )
+        ->add_tab('Режим работы', [
+            Field::make( 'text', 'site_worktime_title', 'Текст' ),
+            Field::make( 'text', 'site_worktime_mode-1', 'Режим 1' ),
+            Field::make( 'text', 'site_worktime_mode-2', 'Режим 2'),
+        ] );
+
+      //   Дополнительные поля на главной странице
+   Container::make( 'post_meta', 'Дополнительные поля' )
+      ->show_on_template('page-home.php')
+      ->add_tab('Первый Экран', [
+         // set_width(50),
+         Field::make( 'text', 'top_suptitle', 'Надзаголовок' )->set_width(50),
+         // set_width(50),
+         Field::make( 'text', 'top_title', 'Заголовок' )->set_width(50),
+      ] )
+      
+      ->add_tab('Каталог', [
+         Field::make( 'text', 'catalog_title', 'Заголовок' ),  
+         Field::make( 'association', 'catalog_nav', 'Категории товаров' )
+         ->set_types( [
+         [
+            'type'      => 'term',
+            'taxonomy' => 'product-categories',
+         ]
+    ] ),       
+         Field::make( 'association', 'catalog_products', 'Товары' )
+         ->set_types( [
+         [
+            'type'      => 'post',
+            'post_type' => 'product',
+         ]
+    ] )      
+         ] );
+         Container::make( 'post_meta', 'Дополнительные поля' )
+            ->show_on_template('page-delivery.php')
+            ->add_tab('Содержимое страницы', [
+               Field::make( 'text', 'delivery_suptitle', 'Надзаголовок' ),
+               Field::make( 'text', 'delivery_title', 'Заголовок' ),
+               Field::make( 'rich_text', 'delivery_content', 'Текст' ),
+            ] );
+
+            Container::make( 'post_meta', 'Дополнительные поля' )
+            // ->show_on_post_type('product')
+            ->where( 'post_type', '=', 'product' )
+          
+            ->add_tab( 'Информация товара', [
+                Field::make( 'text', 'product_price', 'Цена' ),
+                Field::make( 'complex', 'product_attributes', 'Атрибуты' )
+                ->set_max(3)
+                ->add_fields([
+                  Field::make('text', 'product_size_s', 'Размер S')->set_width(16.666666),
+                  Field::make('text', 'product_size_xs', 'Размер XS')->set_width(16.666666),
+                  Field::make('text', 'product_size_l', 'Размер L')->set_width(16.666666),
+                  Field::make('text', 'product_size_xl', 'Размер XL')->set_width(16.666666),
+                  Field::make('text', 'product_size_xxl', 'Размер XXL')->set_width(16.666666),
+                  Field::make('text', 'product_size_xxxl', 'Размер XXXL')->set_width(16.666666),
+               ])
+            ]);
+}
+
+// Регистрация типа поста - товары
+add_action( 'init', 'register_post_types' );
+
+function register_post_types(){
+
+	register_post_type( 'product', [
+      'label'                 => 'product',
+		'labels' => [
+			'name'               => 'Товары', // основное название для типа записи
+			'singular_name'      => 'Товар', // название для одной записи этого типа
+			'add_new'            => 'Добавить товар', // для добавления новой записи
+			'add_new_item'       => 'Добавление товара', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактирование товара', // для редактирования типа записи
+			'new_item'           => 'Новый товар', // текст новой записи
+			'view_item'          => 'Смотреть товар', // для просмотра записи этого типа.
+			'search_items'       => 'Искать товар', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+			'menu_name'          => 'Товары', // название меню
+		],
+		'public'                 => true,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-cart',
+		'hierarchical'        => false,
+		'supports'            => [ 'title', 'editor' , 'thumbnail', 'excerpt'],
+		'has_archive'         => true,
+      'rewrite'             => ['slug' => 'products']
+	] );
+   register_taxonomy('product-categories', 'product', [
+         'labels'        => [
+              'name'                        => 'Категории товаров',
+              'singular_name'               => 'Категория товароа',
+              'search_items'                =>  'Искать категории',
+              'popular_items'               => 'Популярные категории',
+              'all_items'                   => 'Все категории',
+              'edit_item'                   => 'Изменить категорию',
+              'update_item'                 => 'Обновить категорию',
+              'add_new_item'                => 'Добавить новую категорию',
+              'new_item_name'               => 'Новое название категории',
+              'separate_items_with_commas'  => 'Отделить категории запятыми',
+              'add_or_remove_items'         => 'Добавить или удалить категорию',
+              'choose_from_most_used'       => 'Выбрать самую популярную категорию',
+              'menu_name'                   => 'Категории',
+            ],
+            'hierarchical'  => true,
+          ]);
+}
+
+
+
+************************************************************************
+<?php
+                                            wp_nav_menu( [
+                        	'theme_location'  => 'menu_main_burger',
+                        	'container'       => null,
+                        	'menu_class'      => 'nav__menu',
+                        ] );
+                        ?>
+************************************************************************
+
+<?php echo get_template_directory_uri();?>
+
+<?php
+/*
+Template Name: Главная
+*/
+?>

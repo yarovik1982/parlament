@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Описание">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script defer src="js/burgerMenu.js"></script>
+    <script defer src="js/smoothScroll.js"></script>
+    <script defer src="js/animationHeader.js"></script>
+    <script defer src="js/subnavAccordion.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container header__container">
+            <!--Top content-->
+            <div class="header__top-content">
+
+                <div class="menu">
+                    <div class="burger">
+                        <span class="burger__line"></span>
+                        <span class="burger__line"></span>
+                        <span class="burger__line"></span>
+                    </div>
+                    <p class="menu__text">Меню</p>
+                </div>
+
+                <nav class="nav">
+                    <div class="burger nav__burger"></div>
+                    <!--main navigation-->
+                    <ul class="nav__list nav__menu">
+                        <li class="nav__title nav__menu-title">Меню</li>
+                        <li class="nav__item"><a class="nav__link" href="index.html#hero">Главная</a></li>
+                        <li class="nav__item"><a class="nav__link" href="index.html#about-us">О нас</a></li>
+                        <li class="nav__item"><a class="nav__link" href="index.html#contacts">Контакты</a></li>
+                        <li class="nav__item"><a class="nav__link" href="delivery.html">Доставка</a></li>
+                    </ul>
+                    <!--catalog navigation-->
+                    <ul class="nav__list nav__catalog">
+                        <li class="nav__title">Каталог</li>
+                        <li class="nav__item">ОСЕНЬ/ЗИМА<img class="product-category__arrow" src="img/icons/arrowBlack.svg" alt="">
+                            <ul class="subnav">
+                                <li class="subnav__item"><a class="subnav__link" href="#">Куртки</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Джинсы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Чиносы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Джемпера</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Кардиганы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Лонгсливы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Водолазки</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Футболки</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">ВЕСНА/ЛЕТО<img class="product-category__arrow" src="img/icons/arrowBlack.svg" alt="">
+                            <ul class="subnav">
+                                <li class="subnav__item"><a class="subnav__link" href="#">Куртки</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Джинсы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Чиносы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Джемпера</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Кардиганы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Лонгсливы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Водолазки</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Футболки</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">МУЖСКАЯ ОДЕЖДА<img class="product-category__arrow" src="img/icons/arrowBlack.svg" alt="">
+                            <ul class="subnav">
+                                <li class="subnav__item"><a class="subnav__link" href="#">Куртки</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Джинсы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Чиносы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Джемпера</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Кардиганы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Лонгсливы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Водолазки</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Футболки</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">ЖЕНСКАЯ ОДЕЖДА<img class="product-category__arrow" src="img/icons/arrowBlack.svg" alt="">
+                            <ul class="subnav">
+                                <li class="subnav__item"><a class="subnav__link" href="#">Куртки</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Джинсы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Чиносы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Джемпера</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Кардиганы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Лонгсливы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Водолазки</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Футболки</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav__item">Другое<img class="product-category__arrow" src="img/icons/arrowBlack.svg" alt="">
+                            <ul class="subnav">
+                                <li class="subnav__item"><a class="subnav__link" href="#">Куртки</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Джинсы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Чиносы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Джемпера</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Кардиганы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Лонгсливы</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Водолазки</a></li>
+                                <li class="subnav__item"><a class="subnav__link" href="#">Футболки</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!--address navigation-->
+                    <div class="nav__address address">
+                        <p class="address__text">г.Вязьма</p>
+                        <a href="" class="social-link">
+                            <img class="social-link-img" src="img/icons/vk-black.svg" alt="">
+                        </a>
+                        <a href="" class="social-link">
+                            <img class="social-link-img" src="img/icons/insta-black.svg" alt="">
+                        </a>
+                        <p class="address__subtext">ул.25 Октября, д.28.</p>
+                    </div>
+                </nav>
+
+                <div class="logo header__logo">
+                    <p class="logo__top header__logo-top">Pt</p>
+                    <p class="logo__bottom header__logo-bottom">Магазин одежды</p>
+                </div>
+
+                <div class="social header__social">
+                    <a href="" class="social-link">
+                        <img src="img/icons/vk.svg" alt="" class="social-link-img">
+                    </a>
+                    <a href="" class="social-link">
+                        <img src="img/icons/instagram.svg" alt="" class="social-link-img">
+                    </a>
+                </div>
+
+                <div class="blackout"></div>
+            </div>
+
+            <!--Bottom content-->
+            <div class="header__bottom-content">
+                <a href="shop.html" class="product-category">ОСЕНЬ/ЗИМА</a>
+                <a href="shop.html" class="product-category">ВЕСНА/ЛЕТО</a>
+                <a href="shop.html" class="product-category">КУРТКИ</a>
+                <a href="shop.html" class="product-category">ДЖИНСЫ</a>
+                <a href="shop.html" class="product-category">ЧИНОСЫ</a>
+                <a href="shop.html" class="product-category">ПЛАТЬЯ</a>
+                <a href="shop.html" class="product-category">ШАПКИ</a>
+                <p class="product-category">ЕЩЁ <img class="product-category__arrow" src="img/icons/arrow.svg" alt=""></p>
+                <!--
+                <div class="more">
+                    <a href="#" class="product-category"></a>
+                    <a href="#" class="product-category"></a>
+                </div>-->
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="sorting">
+            <div class="container sorting__container">
+                <p class="sorting__title">Сортировать по:</p>
+                <div class="sorting__items">
+                    <p class="sorting__item sorting__item_selected-up">Популярности</p>
+                    <p class="sorting__item">Цене</p>
+                    <p class="sorting__item">Обновлению</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="shop">
+            <div class="container shop__container">
+                <div class="card">
+                    <div class="card__img">
+                        <img class="card__product-img" src="img/products/productPhoto1.png" alt="">
+                        <img class="card__logo" src="img/icons/PTlogo.svg" alt="Parlament logo">
+                        <div class="card__size-container">
+                            <p class="card__size-text">Размеры:</p>
+                            <div class="card__sizes">
+                                <p class="card__size-item">S</p>
+                                <p class="card__size-item">XS</p>
+                                <p class="card__size-item">L</p>
+                                <p class="card__size-item">XL</p>
+                                <p class="card__size-item">XXL</p>
+                                <p class="card__size-item">XXXL</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card__title">
+                        Платье от Гучи Рояль Летнее 20 см коттон не дорого
+                    </p>
+                    <p class="card__cost">Цена: 5.000₽</p>
+                </div>
+
+                <div class="card">
+                    <div class="card__img">
+                        <img class="card__product-img" src="img/products/productPhoto2.png" alt="">
+                        <img class="card__logo" src="img/icons/PTlogo.svg" alt="Parlament logo">
+                        <div class="card__size-container">
+                            <p class="card__size-text">Размеры:</p>
+                            <div class="card__sizes">
+                                <p class="card__size-item">S</p>
+                                <p class="card__size-item">XS</p>
+                                <p class="card__size-item">L</p>
+                                <p class="card__size-item">XL</p>
+                                <p class="card__size-item">XXL</p>
+                                <p class="card__size-item">XXXL</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card__title">
+                        Свитер
+                    </p>
+                    <p class="card__cost">Цена: 5.000₽</p>
+                </div>
+
+                <div class="card">
+                    <div class="card__img">
+                        <img class="card__product-img" src="img/products/productPhoto3.png" alt="">
+                        <img class="card__logo" src="img/icons/PTlogo.svg" alt="Parlament logo">
+                        <div class="card__size-container">
+                            <p class="card__size-text">Размеры:</p>
+                            <div class="card__sizes">
+                                <p class="card__size-item">S</p>
+                                <p class="card__size-item">XS</p>
+                                <p class="card__size-item">L</p>
+                                <p class="card__size-item">XL</p>
+                                <p class="card__size-item">XXL</p>
+                                <p class="card__size-item">XXXL</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card__title">
+                        Платье от Гучи Рояль Летнее 20 см коттон не дорого
+                    </p>
+                    <p class="card__cost">Цена: 5.000₽</p>
+                </div>
+
+                <div class="card">
+                    <div class="card__img">
+                        <img class="card__product-img" src="img/products/productPhoto1.png" alt="">
+                        <img class="card__logo" src="img/icons/PTlogo.svg" alt="Parlament logo">
+                        <div class="card__size-container">
+                            <p class="card__size-text">Размеры:</p>
+                            <div class="card__sizes">
+                                <p class="card__size-item">S</p>
+                                <p class="card__size-item">XS</p>
+                                <p class="card__size-item">L</p>
+                                <p class="card__size-item">XL</p>
+                                <p class="card__size-item">XXL</p>
+                                <p class="card__size-item">XXXL</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card__title">
+                        Платье от Гучи Рояль Летнее 20 см коттон не дорого
+                    </p>
+                    <p class="card__cost">Цена: 5.000₽</p>
+                </div>
+
+                <div class="card">
+                    <div class="card__img">
+                        <img class="card__product-img" src="img/products/productPhoto1.png" alt="">
+                        <img class="card__logo" src="img/icons/PTlogo.svg" alt="Parlament logo">
+                        <div class="card__size-container">
+                            <p class="card__size-text">Размеры:</p>
+                            <div class="card__sizes">
+                                <p class="card__size-item">S</p>
+                                <p class="card__size-item">XS</p>
+                                <p class="card__size-item">L</p>
+                                <p class="card__size-item">XL</p>
+                                <p class="card__size-item">XXL</p>
+                                <p class="card__size-item">XXXL</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card__title">
+                        Платье от Гучи Рояль Летнее 20 см коттон не дорого
+                    </p>
+                    <p class="card__cost">Цена: 5.000₽</p>
+                </div>
+
+                <div class="card">
+                    <div class="card__img">
+                        <img class="card__product-img" src="img/products/productPhoto2.png" alt="">
+                        <img class="card__logo" src="img/icons/PTlogo.svg" alt="Parlament logo">
+                        <div class="card__size-container">
+                            <p class="card__size-text">Размеры:</p>
+                            <div class="card__sizes">
+                                <p class="card__size-item">S</p>
+                                <p class="card__size-item">XS</p>
+                                <p class="card__size-item">L</p>
+                                <p class="card__size-item">XL</p>
+                                <p class="card__size-item">XXL</p>
+                                <p class="card__size-item">XXXL</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card__title">
+                        Платье от Гучи Рояль Летнее 20 см коттон не дорого
+                    </p>
+                    <p class="card__cost">Цена: 5.000₽</p>
+                </div>
+
+                <div class="card">
+                    <div class="card__img">
+                        <img class="card__product-img" src="img/products/productPhoto3.png" alt="">
+                        <img class="card__logo" src="img/icons/PTlogo.svg" alt="Parlament logo">
+                        <div class="card__size-container">
+                            <p class="card__size-text">Размеры:</p>
+                            <div class="card__sizes">
+                                <p class="card__size-item">S</p>
+                                <p class="card__size-item">XS</p>
+                                <p class="card__size-item">L</p>
+                                <p class="card__size-item">XL</p>
+                                <p class="card__size-item">XXL</p>
+                                <p class="card__size-item">XXXL</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card__title">
+                        Платье от Гучи Рояль Летнее 20 см коттон не дорого
+                    </p>
+                    <p class="card__cost">Цена: 5.000₽</p>
+                </div>
+
+                <div class="card">
+                    <div class="card__img">
+                        <img class="card__product-img" src="img/products/productPhoto1.png" alt="">
+                        <img class="card__logo" src="img/icons/PTlogo.svg" alt="Parlament logo">
+                        <div class="card__size-container">
+                            <p class="card__size-text">Размеры:</p>
+                            <div class="card__sizes">
+                                <p class="card__size-item">S</p>
+                                <p class="card__size-item">XS</p>
+                                <p class="card__size-item">L</p>
+                                <p class="card__size-item">XL</p>
+                                <p class="card__size-item">XXL</p>
+                                <p class="card__size-item">XXXL</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="card__title">
+                        Платье от Гучи Рояль Летнее 20 см коттон не дорого
+                    </p>
+                    <p class="card__cost">Цена: 5.000₽</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer__container">
+            <div class="footer__left-content">
+                <p class="footer__work-time">
+                    Время работы<br>
+                    Пн.-Сб. 9:00-20:00;<br>
+                    Вс. 9:00-18:00.</p>
+                <div class="footer__info-for-users">
+                    <a class="footer__terms-of-use" href="#">Пользовательское соглашение</a>
+                    <a class="footer__privacy-policy" href="#">Политика конфиденциальности</a>
+                </div>
+                <p class="footer__crated-by">Данный сайт создан студией: <span class="crystals">Crystals </span><img
+                        class="crystals__logo" src="img/icons/crystals.svg" alt=""></p>
+
+            </div>
+            <div class="footer__midl-content">
+                <div class="logo footer__logo">
+                    <p class="logo__top">Pt</p>
+                    <p class="logo__bottom">Магазин одежды</p>
+                </div>
+                <div class="footer__menu">
+                    <a class="footer__menu-item" href="#">Главная</a>
+                    <a class="footer__menu-item" href="#">Каталог</a>
+                    <a class="footer__menu-item" href="#">О нас</a>
+                    <a class="footer__menu-item" href="#">Контакты</a>
+                    <a class="footer__menu-item" href="#">Доставка</a>
+                </div>
+
+            </div>
+            <div class="footer__right-content">
+                <p class="footer__contacts">
+                    ИП: Петров Вячеслав Валерьевич<br>
+                    ИНН: 672205091860<br>
+                    г.Вязьма ул.25 Октября, д.28.
+                </p>
+                <img class="footer__logo-img" src="img/images/PT.svg" alt="">
+            </div>
+            <p class="footer__official-shop">Официальный интернет-магазин «Parlament»</p>
+        </div>
+    </footer>
+</body>
+</html>
