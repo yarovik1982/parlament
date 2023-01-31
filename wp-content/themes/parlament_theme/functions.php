@@ -15,6 +15,9 @@ remove_action('wp_head', 'rel_canonical'); //remove canonical
 remove_action('wp_head', 'wp_shortlink_wp_head', 10); //remove shortlink
 remove_action('wp_head', 'wp_oembed_add_discovery_links'); //remove alternate
 
+remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
+remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
+
 add_action( 'wp_enqueue_scripts', 'site_scripts' );
 function site_scripts(){
    $version = '0.0.0.0';
@@ -27,6 +30,24 @@ function site_scripts(){
    wp_enqueue_script('animationHeader', get_template_directory_uri() .'/assets/js/animationHeader.js', [], $version, true );
    wp_enqueue_script('subnavAccordion', get_template_directory_uri() .'/assets/js/subnavAccordion.js', [], $version, true );
 }
+
+function parlamenttheme_add_woocommerce_support() {
+   add_theme_support( 'woocommerce', array(
+       'thumbnail_image_width' => 150,
+       'single_image_width'    => 300,
+
+       'product_grid'          => array(
+           'default_rows'    => 3,
+           'min_rows'        => 2,
+           'max_rows'        => 8,
+           'default_columns' => 4,
+           'min_columns'     => 2,
+           'max_columns'     => 5,
+       ),
+   ) );
+}
+
+add_action( 'after_setup_theme', 'parlamenttheme_add_woocommerce_support' );
 
 
 
