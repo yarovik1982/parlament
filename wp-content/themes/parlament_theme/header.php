@@ -15,6 +15,9 @@
     <?php wp_head(  ); ?>
 </head>
 <body>
+
+<!-- <?php echo wp_get_attachment_image_url( carbon_get_theme_option('icon_vk_light'));?> -->
+
 <header class="header">
     <div class="container header__container">
         <!--Top content-->
@@ -105,14 +108,15 @@
                 </ul>
                 <!--address navigation-->
                 <div class="nav__address address">
-                    <p class="address__text">г.Вязьма</p>
+                    <p class="address__text"><?php echo carbon_get_theme_option('sity');?></p>
                     <a href="" class="social-link">
-                        <img class="social-link-img" src="<?php echo get_template_directory_uri();?>/assets/img/icons/vk-black.svg" alt="">
+                        <!-- <img class="social-link-img" src="<?php echo get_template_directory_uri();?>/assets/img/icons/vk-black.svg" alt=""> -->
+                        <img class="social-link-img" src="<?php echo wp_get_attachment_image_url( carbon_get_theme_option('icon_vk_dark'));?>" alt="">
                     </a>
                     <a href="" class="social-link">
-                        <img class="social-link-img" src="<?php echo get_template_directory_uri();?>/assets/img/icons/insta-black.svg" alt="">
+                        <img class="social-link-img" src="<?php echo wp_get_attachment_image_url( carbon_get_theme_option('icon_insta_dark'));?>" alt="">
                     </a>
-                    <p class="address__subtext">ул.25 Октября, д.28.</p>
+                    <p class="address__subtext"><?php echo carbon_get_theme_option('address');?></p>
                 </div>
             </nav>
 
@@ -122,11 +126,11 @@
             </div>
 
             <div class="social header__social">
-                <a href="" class="social-link">
-                    <img src="<?php echo get_template_directory_uri();?>/assets/img/icons/vk.svg" alt="" class="social-link-img">
+                <a href="<?php echo carbon_get_theme_option('link_vk');?>" class="social-link">
+                    <img src="<?php echo wp_get_attachment_image_url( carbon_get_theme_option('icon_vk_light'));?>" alt="" class="social-link-img">
                 </a>
                 <a href="" class="social-link">
-                    <img src="<?php echo get_template_directory_uri();?>/assets/img/icons/instagram.svg" alt="" class="social-link-img">
+                    <img src="<?php echo wp_get_attachment_image_url( carbon_get_theme_option('icon_insta_light'));?>" alt="" class="social-link-img">
                 </a>
             </div>
 

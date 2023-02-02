@@ -31,6 +31,7 @@
             <p class="footer__contacts">
                 <?php echo carbon_get_theme_option('name_company');?><br>
                 <?php echo carbon_get_theme_option('inn');?><br>
+                <?php echo carbon_get_theme_option('sity');?>
                 <?php echo carbon_get_theme_option('address');?>
             </p>
             <img class="footer__logo-img" src="<?php echo get_template_directory_uri();?>/assets/img/images/PT.svg" alt="">

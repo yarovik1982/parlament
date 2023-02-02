@@ -13,11 +13,22 @@ Template Name: Главная
     <section class="hero" id="hero">
         <div class="hero__wrapper">
             <div class="container hero__container">
+                 <!--Bottom content-->
+        <!-- <div class="header__bottom-content">
+            <a href="shop.html" class="product-category">ОСЕНЬ/ЗИМА</a>
+            <a href="shop.html" class="product-category">ВЕСНА/ЛЕТО</a>
+            <a href="shop.html" class="product-category">КУРТКИ</a>
+            <a href="shop.html" class="product-category">ДЖИНСЫ</a>
+            <a href="shop.html" class="product-category">ЧИНОСЫ</a>
+            <a href="shop.html" class="product-category">ПЛАТЬЯ</a>
+            <a href="shop.html" class="product-category">ШАПКИ</a>
+            <p class="product-category">ЕЩЁ <img class="product-category__arrow" src="<?php echo get_template_directory_uri();?>/assets/img/icons/arrow.svg" alt=""></p>
+        </div> -->
                 <p class="hero__support"></p>
                 <h1 class="hero__preview"><span class="hero__logo">Parlament</span> <br> Магазин одежды</h1>
-                <p class="hero__working-hours">Время работы<br>
-                    Пн.-Сб. 9:00-20:00;<br>
-                    Вс. 9:00-18:00.</p>
+                <p class="hero__working-hours"><?php echo carbon_get_theme_option('work_hours_text');?><br>
+                <?php echo carbon_get_theme_option('work_hours_1');?><br>
+                <?php echo carbon_get_theme_option('work_hours_2');?></p>
             </div>
         </div>
     </section>
@@ -95,11 +106,11 @@ Template Name: Главная
 
             <div class="contacts__right-content">
                 <h2 class="title contacts__title">Контакты</h2>
-                <p class="contacts__work-time">Время работы<br>
-                    Пн.-Сб. 9:00-20:00;<br>
-                    Вс. 9:00-18:00.</p>
-                <p class="contacts__address">г.Вязьма<br>
-                    ул.25 Октября, д.28.</p>
+                <p class="contacts__work-time"><?php echo carbon_get_theme_option('work_hours_text');?><br>
+                <?php echo carbon_get_theme_option('work_hours_1');?><br>
+                <?php echo carbon_get_theme_option('work_hours_2');?></p>
+                <p class="contacts__address"><?php echo carbon_get_theme_option('sity');?><br>
+                <?php echo carbon_get_theme_option('address');?></p>
 
                 <div class="contacts__right-bottom">
                     <div class="social contacts__social">

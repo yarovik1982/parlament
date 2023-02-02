@@ -37,9 +37,26 @@ function crb_attach_theme_options() {
         ->add_tab('Общие настройки', [
             Field::make( 'text', 'name_company', 'Наша организация' ),
             Field::make( 'text', 'inn', 'Наш ИНН' ),
-            Field::make( 'text', 'address', 'Наш адрес' ),
-        ] );
+            Field::make( 'text', 'sity', 'Город' ),
+            Field::make( 'text', 'address', 'Адрес' ),
+            Field::make( 'text', 'work_hours_text', 'Часы работы текст' ),
+            Field::make( 'text', 'work_hours_1', 'Часы работы в будни' ),
+            Field::make( 'text', 'work_hours_2', 'Часы работы в выходные' ),
+            
+        ] )
+        ->add_tab('Мы в соцсетях', [
+         Field::make( 'image', 'icon_vk_light', 'Иконка вк светлая' ),
+         Field::make( 'image', 'icon_vk_dark', 'Иконка вк темная' ),
+         Field::make( 'text', 'link_vk', 'Ссылка вк' )->set_help_text('Вставить в поле ссылку' ),
+         Field::make( 'image', 'icon_insta_light', 'Иконка инстаграм светлая' ),
+         Field::make( 'image', 'icon_insta_dark', 'Иконка инстаграм темная' ),
+         Field::make( 'text', 'link_insta', 'Ссылка инстаграм' )->set_help_text('Вставить в поле ссылку' ),
+        
+         
+     ] );
 }
+
+
 
 // ->set_help_text('Настройки полей находятся в файле functions.php, после комментария Carbon_Fields' )
 
