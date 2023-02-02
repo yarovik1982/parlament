@@ -27,6 +27,23 @@ function site_scripts(){
    wp_enqueue_script('animationHeader', get_template_directory_uri() .'/assets/js/animationHeader.js', [], $version, true );
    wp_enqueue_script('subnavAccordion', get_template_directory_uri() .'/assets/js/subnavAccordion.js', [], $version, true );
 }
+// ----------------------Carbon_Fields----------------------------
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
+add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
+function crb_attach_theme_options() {
+    Container::make( 'theme_options', 'Настройки сайта' )
+        ->add_tab('Общие настройки', [
+            Field::make( 'text', 'name_company', 'Наша организация' ),
+            Field::make( 'text', 'inn', 'Наш ИНН' ),
+            Field::make( 'text', 'address', 'Наш адрес' ),
+        ] );
+}
+
+// ->set_help_text('Настройки полей находятся в файле functions.php, после комментария Carbon_Fields' )
+
+
 
 
 
