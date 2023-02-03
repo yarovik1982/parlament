@@ -32,6 +32,7 @@ add_action( 'after_setup_theme', 'theme_support');
 function theme_support(){
    register_nav_menu('menu_main_burger', "Меню в бургере" );
    register_nav_menu('menu_main_footer', "Меню в подвале" );
+   add_theme_support( 'post-thumbnails' );
 }
 // add_action( 'after_setup_theme', 'theme_support');
 // function theme_support(){
@@ -70,13 +71,65 @@ function crb_attach_theme_options() {
              Field::make( 'image', 'hero_img', 'Изображение на первом экране'),
              Field::make( 'text', 'top_info', 'Надзаголовок' )->set_width(50),
              Field::make( 'text', 'top_title', 'Заголовок' )->set_width(50),
+         ] )
+         ->add_tab('Каталог', [
              
-             
+             Field::make( 'text', 'top_info', 'Надзаголовок' )->set_width(50),
+             Field::make( 'text', 'top_title', 'Заголовок' )->set_width(50),
          ] );
 }
 
 
+// Регистрация типа поста - товары
+add_action( 'init', 'register_post_types' );
+
+function register_post_types(){
+
+	register_post_type( 'product', [
+      'label'                 => 'product',
+		'labels' => [
+			'name'               => 'Товары', // основное название для типа записи
+			'singular_name'      => 'Товар', // название для одной записи этого типа
+			'add_new'            => 'Добавить товар', // для добавления новой записи
+			'add_new_item'       => 'Добавление товара', // заголовка у вновь создаваемой записи в админ-панели.
+			'edit_item'          => 'Редактирование товара', // для редактирования типа записи
+			'new_item'           => 'Новый товар', // текст новой записи
+			'view_item'          => 'Смотреть товар', // для просмотра записи этого типа.
+			'search_items'       => 'Искать товар', // для поиска по этим типам записи
+			'not_found'          => 'Не найдено', // если в результате поиска ничего не было найдено
+			'not_found_in_trash' => 'Не найдено в корзине', // если не было найдено в корзине
+			'parent_item_colon'  => '', // для родителей (у древовидных типов)
+			'menu_name'          => 'Товары', // название меню
+		],
+		'public'                 => true,
+		'menu_position'       => 5,
+		'menu_icon'           => 'dashicons-cart',
+		'hierarchical'        => false,
+		'supports'            => [ 'title', 'editor' , 'thumbnail', 'excerpt'],
+		'has_archive'         => true,
+      'rewrite'             => ['slug' => 'products']
+	] );
+
        
+   register_taxonomy('product-categories', 'product', [
+   'labels'        => [
+        'name'                        => 'Категории товаров',
+        'singular_name'               => 'Категория товароа',
+        'search_items'                =>  'Искать категории',
+        'popular_items'               => 'Популярные категории',
+        'all_items'                   => 'Все категории',
+        'edit_item'                   => 'Изменить категорию',
+        'update_item'                 => 'Обновить категорию',
+        'add_new_item'                => 'Добавить новую категорию',
+        'new_item_name'               => 'Новое название категории',
+        'separate_items_with_commas'  => 'Отделить категории запятыми',
+        'add_or_remove_items'         => 'Добавить или удалить категорию',
+        'choose_from_most_used'       => 'Выбрать самую популярную категорию',
+        'menu_name'                   => 'Категории',
+      ],
+      'hierarchical'  => true,
+    ]);
+}
 
 
 
