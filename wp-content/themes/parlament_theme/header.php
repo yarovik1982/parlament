@@ -37,10 +37,17 @@
                 <!--main navigation-->
                 <ul class="nav__list nav__menu">
                     <li class="nav__title nav__menu-title">Меню</li>
-                    <li class="nav__item"><a class="nav__link" href="#hero">Главная</a></li>
+<?php
+wp_nav_menu( [
+	'theme_location'  => 'menu_main_burger',
+	'container'       => null,
+	'menu_class'      => 'nav__menu',
+] );
+?>
+                    <!-- <li class="nav__item"><a class="nav__link" href="#hero">Главная</a></li>
                     <li class="nav__item"><a class="nav__link" href="#about-us">О нас</a></li>
                     <li class="nav__item"><a class="nav__link" href="#contacts">Контакты</a></li>
-                    <li class="nav__item"><a class="nav__link" href="delivery.html">Доставка</a></li>
+                    <li class="nav__item"><a class="nav__link" href="delivery.html">Доставка</a></li> -->
                 </ul>
                 <!--catalog navigation-->
                 <ul class="nav__list nav__catalog">
@@ -110,7 +117,6 @@
                 <div class="nav__address address">
                     <p class="address__text"><?php echo carbon_get_theme_option('sity');?></p>
                     <a href="" class="social-link">
-                        <!-- <img class="social-link-img" src="<?php echo get_template_directory_uri();?>/assets/img/icons/vk-black.svg" alt=""> -->
                         <img class="social-link-img" src="<?php echo wp_get_attachment_image_url( carbon_get_theme_option('icon_vk_dark'));?>" alt="">
                     </a>
                     <a href="" class="social-link">
@@ -121,8 +127,19 @@
             </nav>
 
             <div class="logo header__logo">
+<?php 
+if(is_front_page()):?>
                 <p class="logo__top header__logo-top">Pt</p>
                 <p class="logo__bottom header__logo-bottom">Магазин одежды</p>
+<?php else : ?>
+            <a href="<?php echo get_home_url( ); ?>">
+                <p class="logo__top header__logo-top">Pt</p>
+                <p class="logo__bottom header__logo-bottom">Магазин одежды</p>
+            </a>
+
+<?php endif; ?>
+                <!-- <p class="logo__top header__logo-top">Pt</p>
+                <p class="logo__bottom header__logo-bottom">Магазин одежды</p> -->
             </div>
 
             <div class="social header__social">

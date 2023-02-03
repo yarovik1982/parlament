@@ -19,11 +19,25 @@
                 <p class="logo__bottom">Магазин одежды</p>
             </div>
             <div class="footer__menu">
-                <a class="footer__menu-item" href="#">Главная</a>
-                <a class="footer__menu-item" href="#">Каталог</a>
-                <a class="footer__menu-item" href="#">О нас</a>
-                <a class="footer__menu-item" href="#">Контакты</a>
-                <a class="footer__menu-item" href="#">Доставка</a>
+
+
+<?php
+wp_nav_menu( [
+	'theme_location'  => 'menu_main_footer',
+	'container'       => null,
+	'menu_class'      => 'footer__menu-item',
+] );
+?>
+
+
+
+
+
+                <!-- // <a class="footer__menu-item" href="#">Главная</a>
+                // <a class="footer__menu-item" href="#">Каталог</a>
+                // <a class="footer__menu-item" href="#">О нас</a>
+                // <a class="footer__menu-item" href="#">Контакты</a>
+                // <a class="footer__menu-item" href="#">Доставка</a> -->
             </div>
 
         </div>

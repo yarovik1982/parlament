@@ -27,6 +27,16 @@ function site_scripts(){
    wp_enqueue_script('animationHeader', get_template_directory_uri() .'/assets/js/animationHeader.js', [], $version, true );
    wp_enqueue_script('subnavAccordion', get_template_directory_uri() .'/assets/js/subnavAccordion.js', [], $version, true );
 }
+
+add_action( 'after_setup_theme', 'theme_support');
+function theme_support(){
+   register_nav_menu('menu_main_burger', "Меню в бургере" );
+   register_nav_menu('menu_main_footer', "Меню в подвале" );
+}
+// add_action( 'after_setup_theme', 'theme_support');
+// function theme_support(){
+// }
+
 // ----------------------Carbon_Fields----------------------------
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
@@ -51,8 +61,6 @@ function crb_attach_theme_options() {
          Field::make( 'image', 'icon_insta_light', 'Иконка инстаграм светлая' ),
          Field::make( 'image', 'icon_insta_dark', 'Иконка инстаграм темная' ),
          Field::make( 'text', 'link_insta', 'Ссылка инстаграм' )->set_help_text('Вставить в поле ссылку' ),
-        
-         
      ] );
 }
 
