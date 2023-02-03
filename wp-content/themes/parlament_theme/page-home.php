@@ -4,14 +4,16 @@ Template Name: Главная
 */
 ?>
 
-
+<?php $page_id = get_the_ID(  );?>
 <?php get_header(  );?>
-
 
 
 <main class="main">
     <section class="hero" id="hero">
         <div class="hero__wrapper">
+            <div class="hero__wrapper-img">
+                <img src="<?php echo wp_get_attachment_image_url(carbon_get_post_meta( $page_id, 'hero_img' ), 'full');?>" alt="">
+            </div>
             <div class="container hero__container">
                  <!--Bottom content-->
         <!-- <div class="header__bottom-content">
@@ -25,7 +27,8 @@ Template Name: Главная
             <p class="product-category">ЕЩЁ <img class="product-category__arrow" src="<?php echo get_template_directory_uri();?>/assets/img/icons/arrow.svg" alt=""></p>
         </div> -->
                 <p class="hero__support"></p>
-                <h1 class="hero__preview"><span class="hero__logo">Parlament</span> <br> Магазин одежды</h1>
+                <h1 class="hero__preview">
+                    <span class="hero__logo"><?php echo carbon_get_post_meta($page_id,'top_info');?></span> <br> Магазин одежды</h1>
                 <p class="hero__working-hours"><?php echo carbon_get_theme_option('work_hours_text');?><br>
                 <?php echo carbon_get_theme_option('work_hours_1');?><br>
                 <?php echo carbon_get_theme_option('work_hours_2');?></p>

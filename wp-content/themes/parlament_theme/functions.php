@@ -43,6 +43,7 @@ use Carbon_Fields\Field;
 
 add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' );
 function crb_attach_theme_options() {
+   // админпанель->настройки сайта
     Container::make( 'theme_options', 'Настройки сайта' )
         ->add_tab('Общие настройки', [
             Field::make( 'text', 'name_company', 'Наша организация' ),
@@ -62,7 +63,21 @@ function crb_attach_theme_options() {
          Field::make( 'image', 'icon_insta_dark', 'Иконка инстаграм темная' ),
          Field::make( 'text', 'link_insta', 'Ссылка инстаграм' )->set_help_text('Вставить в поле ссылку' ),
      ] );
+   //   post_meta админпанель->страницы->главная(id=5)
+     Container::make( 'post_meta', 'Дополнительные поля' )
+         ->show_on_page(5)
+         ->add_tab('Первый экран', [
+             Field::make( 'image', 'hero_img', 'Изображение на первом экране'),
+             Field::make( 'text', 'top_info', 'Надзаголовок' )->set_width(50),
+             Field::make( 'text', 'top_title', 'Заголовок' )->set_width(50),
+             
+             
+         ] );
 }
+
+
+       
+
 
 
 
