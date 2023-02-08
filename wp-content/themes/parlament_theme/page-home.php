@@ -43,61 +43,40 @@ Template Name: Главная
             <img class="about-us__img-mobile" src="<?php echo get_template_directory_uri();?>/assets/img/images/aboutUsMob.svg" alt="">
         </div>
     </section>
+<?php echo get_the_post_thumbnail_url(  );?>
+<?php
+$catalog_products = carbon_get_post_meta($page_id, 'catalog_products');
+$catalog_products_ids = wp_list_pluck( $catalog_products, 'id' );
+$catalog_products_query_args = [
+    'post_type' => 'product',
+    'post__in'   => $catalog_products_ids
+];
+$catalog_products_query = new WP_Query( $catalog_products_query_args );
+// echo '<pre>';
+// print_r($catalog_products_ids);
+// echo '</pre>';
+// $product_id = get_the_ID(  );
+// $product_img_src = get_the_post_thumbnail_url( $product_id, 'product' );
+echo $product_img;
+?>
 
-    <section class="catalog" id="catalog">
-        <h2 class="title">Каталог</h2>
+<section class="catalog" id="catalog">
+    
+    <h2 class="title"><?php echo carbon_get_post_meta($page_id,'catalog_title');?></h2>
+    
+    <?php if ( $catalog_products_query->have_posts() ) : ?>
         <div class="container catalog__container">
-            <div class="catalog__card ID__1">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/dress.png" alt="">
-                <h3 class="catalog__category">Платья</h3>
-            </div>
-            <div class="catalog__card ID__2">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/pullover.png" alt="">
-                <h3 class="catalog__category">Свитеры</h3>
-            </div>
-            <div class="catalog__card ID__3">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/jacket.png" alt="">
-                <h3 class="catalog__category">Куртки</h3>
-            </div>
-            <div class="catalog__card ID__4">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/pullover.png" alt="">
-                <h3 class="catalog__category">Футболки</h3>
-            </div>
-
-            <div class="catalog__card ID__1">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/dress.png" alt="">
-                <h3 class="catalog__category">Платья</h3>
-            </div>
-            <div class="catalog__card ID__2">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/pullover.png" alt="">
-                <h3 class="catalog__category">Свитеры</h3>
-            </div>
-            <div class="catalog__card ID__3">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/jacket.png" alt="">
-                <h3 class="catalog__category">Куртки</h3>
-            </div>
-            <div class="catalog__card ID__4">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/pullover.png" alt="">
-                <h3 class="catalog__category">Футболки</h3>
-            </div>
-
-            <div class="catalog__card ID__1">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/dress.png" alt="">
-                <h3 class="catalog__category">Платья</h3>
-            </div>
-            <div class="catalog__card ID__2">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/pullover.png" alt="">
-                <h3 class="catalog__category">Свитеры</h3>
-            </div>
-            <div class="catalog__card ID__3">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/jacket.png" alt="">
-                <h3 class="catalog__category">Куртки</h3>
-            </div>
-            <div class="catalog__card ID__4">
-                <img class="catalog__img" src="<?php echo get_template_directory_uri();?>/assets/img/images/pullover.png" alt="">
-                <h3 class="catalog__category">Футболки</h3>
-            </div>
+    
+            <?php while ( $catalog_products_query->have_posts() ) : $catalog_products_query->the_post(); ?>
+            <?php echo get_template_part( 'catalog-content');?>
+        
+            <?php endwhile; ?>
+        
+            <?php wp_reset_postdata(); ?>
         </div>
+    
+    <?php endif; ?>
+        
     </section>
 
     <section class="contacts" id="contacts" title="contacts">

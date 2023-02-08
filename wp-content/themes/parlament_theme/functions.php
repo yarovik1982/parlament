@@ -33,10 +33,9 @@ function theme_support(){
    register_nav_menu('menu_main_burger', "Меню в бургере" );
    register_nav_menu('menu_main_footer', "Меню в подвале" );
    add_theme_support( 'post-thumbnails' );
+   add_image_size( 'product', 300, 300, false );
 }
-// add_action( 'after_setup_theme', 'theme_support');
-// function theme_support(){
-// }
+
 
 // ----------------------Carbon_Fields----------------------------
 use Carbon_Fields\Container;
@@ -73,10 +72,22 @@ function crb_attach_theme_options() {
              Field::make( 'text', 'top_title', 'Заголовок' )->set_width(50),
          ] )
          ->add_tab('Каталог', [
-             
-             Field::make( 'text', 'top_info', 'Надзаголовок' )->set_width(50),
-             Field::make( 'text', 'top_title', 'Заголовок' )->set_width(50),
-         ] );
+             Field::make( 'text', 'catalog_title', 'Заголовок' ),
+             Field::make( 'association', 'catalog_products', 'Товары' )
+                ->set_types( [
+                    [
+                    'type' => 'post',
+                    'post_type' => 'product',
+                    ]
+                    ] )
+                ] );
+         
+         Container::make( 'post_meta', 'Дополнительные поля' )
+             ->show_on_post_type('product')
+             ->add_tab('Информация товара', [
+                 Field::make( 'text', 'product_price', 'Цена' )->set_width(50),
+                 
+             ] );
 }
 
 
