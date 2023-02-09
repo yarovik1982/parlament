@@ -15,6 +15,7 @@ Template Name: Главная
                 <img src="<?php echo wp_get_attachment_image_url(carbon_get_post_meta( $page_id, 'hero_img' ), 'full');?>" alt="">
             </div>
             <div class="container hero__container">
+            
                  <!--Bottom content-->
         <!-- <div class="header__bottom-content">
             <a href="shop.html" class="product-category">ОСЕНЬ/ЗИМА</a>

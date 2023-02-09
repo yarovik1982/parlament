@@ -589,6 +589,9 @@ ul,li{
    list-style: none;
    padding-inline:0 ;
 }
+.menu-item + .menu-item{
+   margin-top: 10px;
+}
 .nav__list {
    align-items: flex-start;
    position: relative;

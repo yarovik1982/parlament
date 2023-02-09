@@ -73,6 +73,13 @@ function crb_attach_theme_options() {
          ] )
          ->add_tab('Каталог', [
              Field::make( 'text', 'catalog_title', 'Заголовок' ),
+             Field::make( 'association', 'catalog_nav', 'Категории товаров' )
+                ->set_types( [
+                    [
+                    'type' => 'term',
+                    'taxonomy' => 'product-categories',
+                    ]
+                    ] ),
              Field::make( 'association', 'catalog_products', 'Товары' )
                 ->set_types( [
                     [
@@ -86,7 +93,8 @@ function crb_attach_theme_options() {
              ->show_on_post_type('product')
              ->add_tab('Информация товара', [
                  Field::make( 'text', 'product_price', 'Цена' )->set_width(50),
-                 
+                 Field::make( 'checkbox', 'product_show', 'Показать товар на главной' )
+                ->set_option_value( 'yes' ),
              ] );
 }
 

@@ -44,72 +44,110 @@ wp_nav_menu( [
 	'menu_class'      => 'nav__menu',
 ] );
 ?>
-                    <!-- <li class="nav__item"><a class="nav__link" href="#hero">Главная</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#about-us">О нас</a></li>
-                    <li class="nav__item"><a class="nav__link" href="#contacts">Контакты</a></li>
-                    <li class="nav__item"><a class="nav__link" href="delivery.html">Доставка</a></li> -->
+
                 </ul>
                 <!--catalog navigation-->
                 <ul class="nav__list nav__catalog">
                     <li class="nav__title">Каталог</li>
                     <li class="nav__item">ОСЕНЬ/ЗИМА<img class="product-category__arrow" src="<?php echo get_template_directory_uri();?>/assets/img/icons/arrowBlack.svg" alt="">
                         <ul class="subnav">
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Куртки</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Джинсы</a></li>
+                        <?php
+
+$terms = get_terms( [
+	'taxonomy'   => 'product-categories',
+    'name'       => ['Куртки', 'Джинсы', 'Чиносы', 'Джемпера', 'Кардиганы', 'Лонгсливы', 'Водолазки', 'Футболки'],
+    'orderby'    => 'id',
+	'order'      => 'ASC',
+] );
+?>
+            <?php foreach ($terms as $item) : ?>
+                
+                <li class="subnav__item" data-filter="<?php echo $item -> slug;?>">
+                    <?php echo $item -> name;?>
+                </li>
+            <?php endforeach;?>
+                           
+                            <!-- <li class="subnav__item"><a class="subnav__link" href="shop.html">Джинсы</a></li>
                             <li class="subnav__item"><a class="subnav__link" href="shop.html">Чиносы</a></li>
                             <li class="subnav__item"><a class="subnav__link" href="shop.html">Джемпера</a></li>
                             <li class="subnav__item"><a class="subnav__link" href="shop.html">Кардиганы</a></li>
                             <li class="subnav__item"><a class="subnav__link" href="shop.html">Лонгсливы</a></li>
                             <li class="subnav__item"><a class="subnav__link" href="shop.html">Водолазки</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Футболки</a></li>
+                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Футболки</a></li> -->
                         </ul>
                     </li>
                     <li class="nav__item">ВЕСНА/ЛЕТО<img class="product-category__arrow" src="<?php echo get_template_directory_uri();?>/assets/img/icons/arrowBlack.svg" alt="">
                         <ul class="subnav">
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Куртки</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Джинсы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Чиносы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Джемпера</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Кардиганы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Лонгсливы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Водолазки</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Футболки</a></li>
+                            <?php
+                                $terms = get_terms( [
+                                	'taxonomy'   => 'product-categories',
+                                    'name'       => ['Куртки', 'Джинсы', 'Чиносы', 'Джемпера', 'Кардиганы', 'Лонгсливы', 'Водолазки',      'Футболки'],
+                                    'orderby'    => 'id',
+                                	'order'      => 'ASC',
+                                ] );
+                            ?>
+                            <?php 
+                                foreach ($terms as $item) : 
+                            ?>
+                                
+                                <li class="subnav__item" data-filter="<?php echo $item -> slug;?>">
+                                    <?php echo $item -> name;?>
+                                </li>
+                            <?php endforeach;?>                            
                         </ul>
                     </li>
                     <li class="nav__item">МУЖСКАЯ ОДЕЖДА<img class="product-category__arrow" src="<?php echo get_template_directory_uri();?>/assets/img/icons/arrowBlack.svg" alt="">
                         <ul class="subnav">
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Куртки</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Джинсы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Чиносы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Джемпера</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Кардиганы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Лонгсливы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Водолазки</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Футболки</a></li>
+                        <?php
+                            $terms = get_terms( [
+                            	'taxonomy'   => 'product-categories',
+                                'name'       => ['Куртки', 'Джинсы', 'Чиносы', 'Джемпера', 'Кардиганы', 'Лонгсливы', 'Водолазки', 'Футболки'],
+                                'orderby'    => 'id',
+                            	'order'      => 'ASC',
+                            ] );
+                            ?>
+                            <?php foreach ($terms as $item) : ?>
+                                
+                                <li class="subnav__item" data-filter="<?php echo $item -> slug;?>">
+                                    <?php echo $item -> name;?>
+                                </li>
+                            <?php endforeach;?>
                         </ul>
                     </li>
                     <li class="nav__item">ЖЕНСКАЯ ОДЕЖДА<img class="product-category__arrow" src="<?php echo get_template_directory_uri();?>/assets/img/icons/arrowBlack.svg" alt="">
                         <ul class="subnav">
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Куртки</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Джинсы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Чиносы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Джемпера</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Кардиганы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Лонгсливы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Водолазки</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Футболки</a></li>
+                        <?php
+                            $terms = get_terms( [
+                            	'taxonomy'   => 'product-categories',
+                                'name'       => ['Куртки', 'Джинсы', 'Чиносы', 'Джемпера', 'Кардиганы', 'Лонгсливы', 'Водолазки', 'Футболки'],
+                                'orderby'    => 'id',
+                            	'order'      => 'ASC',
+                            ] );
+                            ?>
+                            <?php foreach ($terms as $item) : ?>
+                                
+                                <li class="subnav__item" data-filter="<?php echo $item -> slug;?>">
+                                    <?php echo $item -> name;?>
+                                </li>
+                            <?php endforeach;?>
                         </ul>
                     </li>
                     <li class="nav__item">Другое<img class="product-category__arrow" src="<?php echo get_template_directory_uri();?>/assets/img/icons/arrowBlack.svg" alt="">
                         <ul class="subnav">
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Куртки</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Джинсы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Чиносы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Джемпера</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Кардиганы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Лонгсливы</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Водолазки</a></li>
-                            <li class="subnav__item"><a class="subnav__link" href="shop.html">Футболки</a></li>
+                        <?php
+
+                            $terms = get_terms( [
+                            	'taxonomy'   => 'product-categories',
+                                'name'       => ['Куртки', 'Джинсы', 'Чиносы', 'Джемпера', 'Кардиганы', 'Лонгсливы', 'Водолазки', 'Футболки'],
+                                'orderby'    => 'id',
+                            	'order'      => 'ASC',
+                            ] );
+                            ?>
+                            <?php foreach ($terms as $item) : ?>
+                                <li class="subnav__item" data-filter="<?php echo $item -> slug;?>">
+                            <?php echo $item -> name;?>
+                                </li>
+                            <?php endforeach;?>
                         </ul>
                     </li>
                 </ul>
@@ -155,15 +193,24 @@ if(is_front_page()):?>
         </div>
 
         <!--Bottom content-->
-        <div class="header__bottom-content">
-            <a href="shop.html" class="product-category">ОСЕНЬ/ЗИМА</a>
-            <a href="shop.html" class="product-category">ВЕСНА/ЛЕТО</a>
-            <a href="shop.html" class="product-category">КУРТКИ</a>
-            <a href="shop.html" class="product-category">ДЖИНСЫ</a>
-            <a href="shop.html" class="product-category">ЧИНОСЫ</a>
-            <a href="shop.html" class="product-category">ПЛАТЬЯ</a>
-            <a href="shop.html" class="product-category">ШАПКИ</a>
+        <ul class="header__bottom-content">
+            <?php
+
+$terms = get_terms( [
+	'taxonomy'   => 'product-categories',
+    'name'       => ['Весна лето', 'Осень зима', 'Джинсы', 'Куртки', 'Чиносы', 'Платья', 'Шапки'],
+    'orderby'    => 'id',
+	'order'      => 'ASC',
+] );
+?>
+            <?php foreach ($terms as $item) : ?>
+                
+                <li class="product-category" data-filter="<?php echo $item -> slug ;?>">
+                    <?php echo $item -> name;?>
+                </li>
+            <?php endforeach;?>
             <p class="product-category">ЕЩЁ <img class="product-category__arrow" src="<?php echo get_template_directory_uri();?>/assets/img/icons/arrow.svg" alt=""></p>
-        </div>
+        </ul>
+        
     </div>
 </header>
